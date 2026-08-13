@@ -1,126 +1,143 @@
 # PavelkStore
 
-# 🏁 PAVELK - Premium Motor Racing Wheels E-Commerce
+# 🏁 PAVELK - E-Commerce Velg Motor Racing Premium
 
-Aplikasi web e-commerce premium, modern, dan mewah khusus penjualan Velg Motor Racing. Dibangun menggunakan **PHP Native (Fullstack)** dengan integrasi **Bootstrap 5**, **Custom CSS**, **JavaScript Modern**, dan database **MySQL**.
+Aplikasi web e-commerce premium, modern, dan mewah untuk penjualan velg motor racing. Dibangun menggunakan **PHP Native (Fullstack)** dengan **Bootstrap 5**, **Custom CSS**, **JavaScript Modern**, dan database **MySQL**.
 
 ---
 
-## 💎 Identitas Brand & Desain
+## 💎 Identitas Merek & Desain
+
 - **Merek**: PAVELK (`PVL.`)
-- **Konsep**: Clean, Minimalist, Luxury Premium Brand
+- **Konsep**: Clean, Minimalis, dan Premium
 - **Palet Warna**:
-  - 🖤 Hitam (`#000000` / `#0A0A0A` / `#111111`)
-  - 🤍 Putih (`#FFFFFF` / `#CCCCCC`)
-  - 💎 Biru Glowing Cyan (`#0DD8E6` / `rgb(13, 216, 230)`)
-- **Typography**: Poppins & Montserrat (Google Fonts)
-- **Desain UI/UX**: Sidebar Navigation Responsive, Glassmorphism elements, Smooth Hover Zoom, Custom shadows, Interactive quantity buttons, and Auto-dismiss notification toasts.
+  - Hitam (`#000000` / `#0A0A0A` / `#111111`)
+  - Putih (`#FFFFFF` / `#CCCCCC`)
+  - Biru Cyan Menyala (`#0DD8E6` / `rgb(13, 216, 230)`)
+- **Tipografi**: Poppins & Montserrat (Google Fonts)
+- **Desain UI/UX**: Navigasi sidebar responsif, elemen glassmorphism, efek hover zoom, custom shadow, tombol jumlah interaktif, dan notifikasi otomatis.
 
 ---
 
 ## 🛠️ Fitur Utama
-1. **Sistem Autentikasi Dual-Role**:
-   - Register akun user baru (password di-hash menggunakan `password_hash()`).
-   - Login user biasa (`login.php`).
-   - Login administrator terpisah (`admin/login.php`).
-   - PHP Session Management yang aman.
-2. **Halaman Customer**:
-   - **Landing Page**: Hero section premium, visualisasi interaktif velg 3D-SVG, grid fitur unggulan, dan slider koleksi produk terpopuler.
-   - **Katalog Produk**: Cari velg (`Search`) & navigasi halaman (`Pagination`).
-   - **Detail Produk**: Deskripsi produk, spesifikasi teknis premium, live stock badge checker, dan quantity counter.
-   - **Keranjang Belanja**: Tambah, update kuantitas dinamis, subtotasi otomatis, dan hapus item.
-   - **Checkout**: Form pengiriman lengkap, rekapitulasi pembayaran gratis ongkir, dan notifikasi dialog konfirmasi pengiriman interaktif.
-   - **Riwayat Pesanan**: Cek detail & status kirim (`pending`, `diproses`, `selesai`).
-3. **Halaman Administrator (Admin Panel)**:
-   - **Dashboard**: Statistik visual jumlah produk, total user, dan total pesanan masuk, serta rekap transaksi terbaru.
-   - **CRUD Produk**: Tambah velg baru (dengan upload gambar), edit spesifikasi, update stok, dan hapus produk (auto-delete file gambar lama).
-   - **Kelola Pesanan**: Tinjau alamat kirim penerima, detail belanja, dan ubah status pengiriman (`pending` ➡️ `diproses` ➡️ `selesai`).
-   - **Kelola User**: Daftar database seluruh akun pelanggan terdaftar dan peran akses.
+
+### 1. Sistem Autentikasi Dua Peran
+- Pendaftaran akun pengguna baru dengan hashing kata sandi menggunakan `password_hash()`.
+- Login pengguna melalui `login.php`.
+- Login administrator melalui `admin/login.php`.
+- Manajemen sesi PHP yang aman.
+
+### 2. Halaman Pelanggan
+- **Halaman Utama**: Hero section premium, visualisasi velg 3D-SVG, grid fitur unggulan, dan slider produk populer.
+- **Katalog Produk**: Pencarian velg dan navigasi halaman.
+- **Detail Produk**: Deskripsi, spesifikasi teknis, status stok, dan pengatur jumlah produk.
+- **Keranjang Belanja**: Menambah, mengubah jumlah, menghitung subtotal otomatis, dan menghapus item.
+- **Checkout**: Form pengiriman, ringkasan pembayaran, dan dialog konfirmasi interaktif.
+- **Riwayat Pesanan**: Melihat detail dan status pengiriman (`menunggu`, `diproses`, `selesai`).
+
+### 3. Panel Administrator
+- **Dashboard**: Statistik produk, pengguna, pesanan, dan transaksi terbaru.
+- **CRUD Produk**: Menambah velg, mengunggah gambar, mengubah spesifikasi, memperbarui stok, dan menghapus produk.
+- **Kelola Pesanan**: Melihat alamat penerima, detail belanja, dan mengubah status pengiriman.
+- **Kelola Pengguna**: Melihat seluruh akun pelanggan dan peran akses.
 
 ---
 
 ## 📂 Struktur Folder
+
 ```text
 /pavelkstore
 │
 ├── /admin/
 │   ├── dashboard.php        # Dashboard admin
-│   ├── login.php            # Login khusus administrator
-│   ├── orders.php           # Kelola pesanan & status kirim
+│   ├── login.php            # Login administrator
+│   ├── orders.php           # Kelola pesanan dan status pengiriman
 │   ├── products.php         # CRUD produk velg racing
-│   └── users.php            # List database pelanggan
+│   └── users.php            # Daftar pelanggan
 │
 ├── /assets/
 │   ├── /css/
-│   │   └── style.css        # Premium stylesheet custom
+│   │   └── style.css        # Stylesheet premium
 │   ├── /js/
-│   │   └── main.js          # Skrip interaktif & konfirmasi checkout
-│   └── /images/             # Uploaded/default gambar produk
+│   │   └── main.js          # Interaksi dan konfirmasi checkout
+│   └── /images/             # Gambar produk
 │
 ├── /config/
-│   └── config.php           # Koneksi PDO & fungsi pembantu (helper)
+│   └── config.php           # Koneksi PDO dan fungsi bantuan
 │
 ├── /database/
-│   └── pavelk.sql           # Skema MySQL, relasi tabel & data dummy
+│   └── pavelk.sql           # Skema MySQL dan data contoh
 │
 ├── /includes/
-│   ├── header.php           # Header template HTML & Toast Notification
-│   ├── sidebar.php          # Sidebar interaktif responsif
-│   └── footer.php           # Footer, kontak, & script load
+│   ├── header.php           # Template header dan notifikasi
+│   ├── sidebar.php          # Sidebar responsif
+│   └── footer.php           # Footer dan pemuatan script
 │
 ├── /pages/
-│   ├── cart-process.php     # Proses add/update/delete keranjang
-│   ├── cart.php             # Review keranjang belanja
-│   ├── checkout-process.php # Proses transaksi database (MySQL Transaction)
-│   ├── checkout.php         # Form input alamat kirim
-│   ├── orders.php           # Riwayat pesanan user
-│   ├── product-detail.php   # Detail & spesifikasi velg
-│   └── products.php         # Katalog filter keyword & paging
+│   ├── cart-process.php     # Proses keranjang
+│   ├── cart.php             # Keranjang belanja
+│   ├── checkout-process.php # Proses transaksi database
+│   ├── checkout.php         # Form alamat pengiriman
+│   ├── orders.php           # Riwayat pesanan pengguna
+│   ├── product-detail.php   # Detail dan spesifikasi velg
+│   └── products.php         # Katalog produk
 │
-├── index.php                # Landing page utama
+├── index.php                # Halaman utama
 ├── login.php                # Login pelanggan
-├── register.php             # Registrasi pelanggan
-└── logout.php               # Hapus session & keluar
+├── register.php             # Pendaftaran pelanggan
+└── logout.php               # Keluar dari akun
 ```
 
 ---
 
-## ⚙️ Cara Menjalankan di Localhost (XAMPP / Laragon)
+## ⚙️ Cara Menjalankan di Localhost
 
-### 📌 Persiapan
-1. Pastikan Anda sudah menginstal web server lokal seperti **XAMPP** atau **Laragon** di komputer Anda.
+### Persiapan
 
-### 🔌 Langkah 1: Pindahkan Project ke Web Root
-- **XAMPP**: Pindahkan folder `PavelkStore` ke dalam folder `C:\xampp\htdocs\` sehingga alamatnya menjadi `C:\xampp\htdocs\PavelkStore\`.
-- **Laragon**: Pindahkan folder `PavelkStore` ke dalam folder `C:\laragon\www\` sehingga alamatnya menjadi `C:\laragon\www\PavelkStore\`.
+Pastikan sudah terpasang web server lokal seperti **XAMPP** atau **Laragon**.
 
-### 🛢️ Langkah 2: Import Database MySQL
-1. Buka browser dan ketik alamat: [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
-2. Buat database baru dengan nama **`pavelk`**.
-3. Pilih database **`pavelk`**, lalu klik tab **Import** di bagian atas menu.
-4. Klik **Choose File** / **Telusuri**, lalu pilih file SQL schema yang berada di: `PavelkStore/database/pavelk.sql`.
-5. Scroll ke bawah dan klik tombol **Import** (atau **Go**).
-6. Proses selesai! Tabel `users`, `products`, `cart`, `orders`, dan `order_items` beserta data dummy premium akan terbentuk secara otomatis.
+### Langkah 1: Pindahkan Proyek ke Web Root
 
-### 🚀 Langkah 3: Jalankan Aplikasi
-1. Nyalakan Apache dan MySQL di XAMPP Control Panel atau Laragon.
-2. Buka browser Anda lalu ketik alamat berikut:
-   - **Landing Page (Customer)**: [http://localhost/PavelkStore](http://localhost/PavelkStore)
-   - **Login Administrator**: [http://localhost/PavelkStore/admin/login.php](http://localhost/PavelkStore/admin/login.php)
+**XAMPP:**
+```text
+C:\xampp\htdocs\PavelkStore\
+```
+
+**Laragon:**
+```text
+C:\laragon\www\PavelkStore\
+```
+
+### Langkah 2: Import Database MySQL
+
+1. Buka `http://localhost/phpmyadmin`.
+2. Buat database bernama **`pavelk`**.
+3. Pilih database tersebut dan buka menu **Import**.
+4. Pilih `PavelkStore/database/pavelk.sql`.
+5. Jalankan proses import.
+6. Tabel `users`, `products`, `cart`, `orders`, dan `order_items` akan dibuat.
+
+### Langkah 3: Jalankan Aplikasi
+
+1. Nyalakan Apache dan MySQL.
+2. Buka:
+   - Halaman utama: `http://localhost/PavelkStore`
+   - Login administrator: `http://localhost/PavelkStore/admin/login.php`
 
 ---
 
-## 🔑 Akun Uji Coba (Dummy Account Credentials)
+## 🔑 Akun Uji Coba
 
-### 🧑‍💼 Akun Administrator (Admin Panel Access)
+### 🧑‍💼 Administrator
 - **Email**: `admin@pavelk.com`
-- **Password**: `admin123`
+- **Kata sandi**: `admin123`
 
-### 🧑 Akun Pelanggan (User Access)
+### 🧑 Pelanggan
 - **Email**: `budi@gmail.com`
-- **Password**: `user123`
+- **Kata sandi**: `user123`
 
-*(Anda juga dapat mendaftarkan akun baru menggunakan menu **Register** pada halaman masuk).*
+Anda juga dapat membuat akun baru melalui menu **Daftar** pada halaman login.
 
 ---
-**PAVELK Premium Racing Wheels** — *Style meets supreme road performance.*
+
+**PAVELK Premium Racing Wheels** — *Gaya bertemu performa berkendara.*
